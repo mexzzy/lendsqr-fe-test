@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import "../public/assets/fonts/fonts.scss";
+
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$primary-color: #39cdcc;
+$secondary-color: #213F7D;
+$secondary-accent: #545F7D;
+
+* {
+  padding: 0;
+  margin: 0;
+}
