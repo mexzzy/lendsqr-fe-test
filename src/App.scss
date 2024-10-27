@@ -1,14 +1,412 @@
 @import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-@import "../public/assets/fonts/fonts.scss";
+@import "./assets/fonts/fonts.scss";
 
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
 $primary-color: #39cdcc;
-$secondary-color: #213F7D;
-$secondary-accent: #545F7D;
+$secondary-color: #213f7d;
+$secondary-accent: #545f7d;
 
 * {
   padding: 0;
   margin: 0;
+  // outline: 1px solid red;
+  box-sizing: border-box;
+}
+
+.loginContainer {
+  display: flex;
+
+  .right_container {
+    display: none;
+    @media (min-width: $breakpoint-desktop) {
+      width: 50%;
+      background-color: #fafafa;
+      height: 100vh;
+      display: block;
+
+      .padding {
+        padding: 0 5rem;
+        height: 100%;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        flex-direction: column;
+
+        .logo {
+          bottom: 7rem;
+          position: relative;
+
+          img {
+            width: 170px;
+          }
+        }
+      }
+    }
+  }
+  .login_container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    @media (min-width: $breakpoint-desktop) {
+      width: 50%;
+    }
+
+    .flex {
+      width: 100%;
+      padding: 0 16px;
+      gap: 4rem;
+      flex-direction: column;
+      display: flex;
+
+      @media (min-width: $breakpoint-desktop) {
+        padding: 0 8rem;
+      }
+      @media (min-width: $breakpoint-tablet) {
+        padding: 0 10rem;
+      }
+
+      .logo {
+        position: relative;
+
+        @media (min-width: $breakpoint-desktop) {
+          display: none;
+        }
+
+        img {
+          width: 100px;
+
+          @media (min-width: $breakpoint-tablet) {
+            width: 130px;
+          }
+        }
+      }
+
+      .heading {
+        font-family: "Avenir Next", sans-serif;
+        display: flex;
+        flex-direction: column;
+        gap: 0.7rem;
+
+        h1 {
+          font-size: 40px;
+          color: $secondary-color;
+          font-weight: 700;
+        }
+        span {
+          color: $secondary-accent;
+          font-size: 20px;
+          font-weight: 400;
+        }
+      }
+      .credentials_container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        .input {
+          flex: 1;
+          border: 2px solid #545f7d26;
+          border-radius: 5px;
+          display: flex;
+          overflow: hidden;
+
+          input {
+            width: 100%;
+            padding: 15px;
+            border: 0;
+            outline: 0;
+            font-family: "Avenir Next", sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            color: $secondary-accent;
+
+            &::placeholder {
+              color: $secondary-accent;
+            }
+          }
+          span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: "Avenir Next", sans-serif;
+            font-weight: 600;
+            font-size: 12px;
+            color: $primary-color;
+            cursor: pointer;
+            padding-right: 15px;
+          }
+        }
+
+        .forget_password_button {
+          font-family: "Avenir Next", sans-serif;
+          font-weight: 600;
+          font-size: 12px;
+          color: $primary-color;
+          cursor: pointer;
+          width: fit-content;
+        }
+
+        .primary_button {
+          background-color: $primary-color;
+          color: white;
+          padding: 15px;
+          font-family: "Avenir Next", sans-serif;
+          cursor: pointer;
+          font-weight: 600;
+          border: 0;
+          outline: 0;
+          border-radius: 8px;
+        }
+      }
+    }
+  }
+}
+
+.dashboardContainer {
+  display: flex;
+  flex-direction: column;
+
+  .flex {
+    display: flex;
+    align-items: start;
+  }
+}
+
+.navbar {
+  box-shadow: 1px 1px 20px 1px #52525215;
+
+  .padding {
+    padding: 10px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (min-width: $breakpoint-tablet) {
+      padding: 15px 20px;
+    }
+    @media (min-width: $breakpoint-desktop) {
+      padding: 30px 40px;
+    }
+
+    .left_bar {
+      display: flex;
+      align-items: center;
+
+      @media (min-width: $breakpoint-tablet) {
+        gap: 8rem;
+      }
+
+      @media (min-width: $breakpoint-desktop) {
+        gap: 15rem;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .menu_burger {
+          display: block;
+          color: $secondary-color;
+          font-size: 20px;
+          cursor: pointer;
+
+          @media (min-width: $breakpoint-desktop) {
+            display: none;
+          }
+        }
+        img {
+          width: 80px;
+
+          @media (min-width: $breakpoint-tablet) {
+            width: 120px;
+          }
+          @media (min-width: $breakpoint-desktop) {
+            width: 150px;
+          }
+        }
+      }
+
+      .search_bar {
+        display: none;
+
+        @media (min-width: $breakpoint-desktop) {
+          border: 1px solid #213f7d33;
+          border-radius: 8px;
+          overflow: hidden;
+          display: flex;
+          width: 30vw;
+        }
+
+        input {
+          width: 100%;
+          padding: 10px;
+          border: 0;
+          outline: 0;
+          font-family: "Work Sans", sans-serif;
+          font-weight: 400;
+          font-size: 16px;
+          color: $secondary-accent;
+
+          &::placeholder {
+            color: $secondary-accent;
+          }
+        }
+        button {
+          background-color: $primary-color;
+          padding: 0 20px;
+          border: 0;
+          outline: 0;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .right_bar {
+      display: flex;
+      align-items: center;
+
+      @media (min-width: $breakpoint-tablet) {
+        gap: 1rem;
+      }
+      @media (min-width: $breakpoint-desktop) {
+        gap: 1.5rem;
+      }
+      .search {
+        display: block;
+        color: $secondary-color;
+        font-size: 20px;
+        margin-top: 5px;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 8px;
+
+        @media (min-width: $breakpoint-tablet) {
+          font-size: 25px;
+        }
+
+        @media (min-width: $breakpoint-desktop) {
+          display: none;
+        }
+        &:hover {
+          background: #fafafa;
+        }
+      }
+
+      .notification {
+        cursor: pointer;
+        border-radius: 8px;
+        width: 38px;
+        padding: 10px;
+
+        @media (min-width: $breakpoint-tablet) {
+          width: 40px;
+        }
+
+        &:hover {
+          background: #fafafa;
+        }
+      }
+
+      .user {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .profile_pic {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+
+          @media (min-width: $breakpoint-tablet) {
+            width: 40px;
+            height: 40px;
+          }
+        }
+        .username {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          cursor: pointer;
+
+          span {
+            display: none;
+
+            @media (min-width: $breakpoint-tablet) {
+              display: block;
+              color: $secondary-color;
+              font-family: "Work Sans", sans-serif;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.sidebar {
+  width: 50%;
+  background-color: #fff;
+  display: none;
+
+  @media (min-width: $breakpoint-tablet) {
+    width: 30%;
+    display: none;
+  }
+
+  @media (min-width: $breakpoint-desktop) {
+    width: 20%;
+    display: block;
+    height: 87vh;
+
+    .nav_item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 20px 0 20px 2rem;
+      justify-content: start;
+      color: $secondary-color;
+      font-family: "Work Sans", sans-serif;
+      font-weight: 400;
+    }
+
+    .header {
+      color: $secondary-accent;
+      font-family: "Work Sans", sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      padding: 20px 0 10px 2rem;
+    }
+
+    .nav_tabs {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      // background-color: #f3fcfc;
+      // border-left: 3px solid $primary-color;
+      padding: 15px 0 15px 2rem;
+      justify-content: start;
+      color: $secondary-color;
+      font-family: "Work Sans", sans-serif;
+      font-weight: 400;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.sidebar_controller {
+  width: 100%;
+  background-color: #fafafa;
+  @media (min-width: $breakpoint-desktop) {
+    width: 80%;
+  }
 }
